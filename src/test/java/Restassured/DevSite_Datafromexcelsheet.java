@@ -2904,33 +2904,15 @@ public class DevSite_Datafromexcelsheet
 		String enddate=excel.getCellData(35,1);
 		String status=excel.getCellData(35,2);
 		String pagesize=excel.getCellData(35,3);
-		String apidelivered=excel.getCellData(35,4);
-		String coursename=excel.getCellData(35,5);
-		String groupname=excel.getCellData(35,6);
-		String location=excel.getCellData(35,7);
-
 		
 		Map <String,Object> map = new HashMap< String,Object>();
-
+// New line is added and few lines are updated
 		JSONObject request=new JSONObject();
 		request.put("StartDate",startdate);
 		request.put("EndDate",enddate);
 		request.put("Status",status);
-		request.put("PageSize",pagesize);
-		request.put("APIDelivered",apidelivered);
-		request.put("CourseName",coursename);
-		request.put("GroupName",groupname);
-		request.put("Location",location);
-		System.out.println(request.toJSONString());
+	
 		
-		RequestSpecification request1=given();
-		request1.header("content-Type","application/json");
-		request1.header("Authorization",tokenreceveid);
-
-		Response response=request1.body(request.toJSONString()).post("/GetAllCourseStatusForTheCompany");
-		response.prettyPrint();
-		int statuscode=response.getStatusCode();
-		Assert.assertEquals(statuscode, 200);
 	}
 
 	
